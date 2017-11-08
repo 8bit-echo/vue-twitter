@@ -1,5 +1,144 @@
 body {
+  margin: 0;
   font-family: sans-serif;
-  background-color: whitesmoke;
+  background-color: #e6ecf0;
   color: #333;
+  font-size: 16px;
+}
+
+header {
+  background: white;
+  padding: 1em 0;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+header h1 {
+  margin: 0;
+  font-size: 1.2em;
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    justify-content: unset;
+    align-items: unset;
+  }
+}
+
+.compose {
+  margin: 1em;
+  padding: 1em;
+  background: white;
+  border-radius: 5px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom: solid 3px #1DA1F2;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+  background: #E8F5FD;
+  flex: 1;
+  padding: 1em;
+}
+.compose textarea {
+  width: 100%;
+  resize: vertical;
+  margin-bottom: 5px;
+  border: solid 2px #c6d4dd;
+  outline: none;
+  border-radius: 5px;
+  color: #1DA1F2;
+  font-size: 0.9em;
+}
+.compose textarea:focus {
+  border: solid 2px #4ab3f4;
+}
+.compose button {
+  color: white;
+  font-size: 0.75em;
+  background: #4ab3f4;
+  border-radius: 1rem;
+  outline: none;
+  -webkit-appearance: none;
+  border: none;
+  padding: 0.5em 0.75em;
+  margin-top: 0.75em;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1.1px;
+}
+.compose button:hover {
+  background: #1a9ff1;
+}
+.compose button:disabled {
+  background: lightgrey;
+  color: dimgrey;
+}
+
+.feed {
+  flex: 2;
+  height: 1000px;
+}
+@media screen and (max-width: 600px) {
+  .feed {
+    flex: 1;
+  }
+}
+.feed .tweets {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.feed .tweets .tweet {
+  margin: 1em;
+  padding: 1em;
+  background: white;
+  border-radius: 5px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom: solid 3px #1DA1F2;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+  font-size: 1.125em;
+  font-weight: bold;
+}
+.feed .tweets .tweet .poster {
+  font-weight: 400;
+  color: dimgrey;
+  margin: 0;
+  font-size: 1rem;
+}
+.feed .tweets .untweet {
+  margin: 1em;
+  padding: 1em;
+  background: white;
+  border-radius: 5px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom: solid 3px #1DA1F2;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.25);
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  text-align: center;
+  color: grey;
+  font-size: 1.25em;
+  margin-top: 2em;
+}
+.feed .tweets .untweet::before {
+  content: " ";
+  margin: 0 auto;
+  display: block;
+  background: url("https://cdn4.iconfinder.com/data/icons/social-icons-6/40/twitter-512.png");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 50px;
+  height: 50px;
+  padding-bottom: 1em;
+}
+
+.fa.fa-heart-o:hover {
+  color: crimson;
+}
+.fa.fa-heart {
+  color: crimson;
+}
+.fa.fa-pencil:hover {
+  color: #1DA1F2;
 }

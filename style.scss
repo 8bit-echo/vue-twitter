@@ -1,0 +1,162 @@
+//Colors:
+$background: #e6ecf0;
+$lightblue: #E8F5FD;
+$mediumblue: #1DA1F2;
+$buttonblue: #4ab3f4;
+
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-color: $background;
+  color: #333;
+  font-size: 16px;
+}
+
+header {
+  background: white;
+  padding: 1em 0;
+  box-shadow: 0 0 5px rgba(0,0,0,0.5);
+
+  h1 {
+    margin: 0;
+    font-size: 1.2em;
+  }
+}
+@mixin card {
+  margin: 1em;
+  padding: 1em;
+  background: white;
+  border-radius: 5px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom: solid 3px $mediumblue;
+  box-shadow: 0 0 5px rgba(0,0,0,0.25);
+}
+@mixin custom-button {
+  color: white;
+  font-size: 0.75em;
+  background: $buttonblue;
+  border-radius: 1rem;
+  outline: none;
+  -webkit-appearance: none;
+  border: none;
+  padding: 0.5em 0.75em;
+  margin-top: 0.75em;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1.1px;
+
+  &:hover {
+    background: darken($buttonblue, 10%);
+  }
+
+  &:disabled {
+    background: lightgrey;
+    color: dimgrey;
+  }
+}
+
+.container{
+    @media screen and (max-width: 600px){
+      justify-content: unset;
+      align-items: unset;
+    }
+}
+
+.compose {
+  @include card;
+  background: $lightblue;
+  flex: 1;
+  padding: 1em;
+
+  textarea {
+    width: 100%;
+    resize: vertical;
+    margin-bottom: 5px;
+    border: solid 2px darken($background, 10%);
+    outline: none;
+    border-radius: 5px;
+    color: $mediumblue;
+    font-size: 0.9em;
+
+    &:focus {
+      border: solid 2px $buttonblue;
+    }
+  }
+
+  button {
+    @include custom-button;
+  }
+}
+
+.feed {
+  flex: 2;
+  height: 1000px;
+  
+  @media screen and (max-width: 600px){
+    flex: 1;
+  }
+
+  .tweets {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    .tweet {
+      @include card;
+      font-size: 1.125em;
+      font-weight: bold;
+      
+      .poster{
+        font-weight: 400;
+        color: dimgrey;
+        margin: 0;
+        font-size: 1rem;
+      }
+    }
+
+    .untweet {
+      @include card;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+      text-align: center;
+      color: grey;
+      font-size: 1.25em;
+      margin-top: 2em;
+
+      &::before {
+        content: " ";
+        margin: 0 auto;
+        display: block;
+        background: url('https://cdn4.iconfinder.com/data/icons/social-icons-6/40/twitter-512.png');
+        background-size: contain;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 50px;
+        height: 50px;
+        padding-bottom: 1em;
+      }
+    }
+  }
+}
+
+.fa{
+  
+  &.fa-heart-o{
+    &:hover{
+      color:crimson;
+    }
+  }
+  
+  &.fa-heart{
+    color: crimson;
+  }
+  
+  
+  &.fa-pencil{
+    &:hover{
+      color:$mediumblue;
+    }
+  }
+}
