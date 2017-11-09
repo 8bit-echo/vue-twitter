@@ -16,6 +16,47 @@
     <h1>Tweet Composer</h1>
   </header>
   <main id="app">
+    <div class=" container row top stack-mobile">
+      <div class="compose col bottom-right">
+        <span>@{{username}}</span>
+        
+        <textarea rows="8"
+                  v-model="newTweetText" 
+                  @keyup.enter="submitTweet()">
+        </textarea>
+        
+        <button :disabled="newTweetText === ''" 
+                @click="submitTweet()"
+                >Tweet
+        </button>
+      </div>
+      
+      <div class="feed">
+        <ul class="tweets">
+          <li v-if="tweets.length === 0" 
+              class="untweet"
+          >There's nothing here.
+          </li>
+          
+          <li v-for="tweet, index in tweets" 
+              class="tweet"
+          >
+            <p class="poster">
+              @{{tweet.username}} | {{tweet.timestamp}}
+            </p>
+            <p>
+              {{tweet.text}}
+            </p>
+            <div class="row around">
+              <i class="fa" :class="faved(index)" @click="saveTweet(index)"></i>
+              <i class="fa fa-trash-o" @mouseover="fill($event)" @mouseleave="empty($event)"></i>
+              <i class="fa fa-pencil"></i>
+            </div>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
   
   </main>
 
