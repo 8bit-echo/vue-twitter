@@ -48,9 +48,8 @@
               {{tweet.text}}
             </p>
             <div class="row around">
-              <i class="fa" :class="faved(index)" @click="saveTweet(index)"></i>
-              <i class="fa fa-trash-o" @mouseover="fill($event)" @mouseleave="empty($event)"></i>
-              <i class="fa fa-pencil"></i>
+              <i class="fa" :class="faved(index)" @click="toggleFav(index)"></i>
+              <i class="fa fa-trash-o" @mouseover="fillTrashIcon($event)" @mouseleave="emptyTrashIcon($event)" @click="deleteTweet(index)"></i>
             </div>
           </li>
           
